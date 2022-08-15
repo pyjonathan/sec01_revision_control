@@ -11,3 +11,7 @@ url = f"https://ipapi.co/{ip}/json/"
 
 contents = urllib.request.urlopen(url, context=ctx).read()
 print(contents)
+
+
+
+# git log --pretty=format:"%h - %an, %ar : %s"
