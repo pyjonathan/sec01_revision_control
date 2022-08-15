@@ -1,16 +1,15 @@
-import ssl
-import urllib.request
-
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
+import requests
+import json
 
 ip = input("Enter IP to Lookup: ")
 
-url = f"https://ipapi.co/{ip}/json/"
+url = f"https://ipapi.co/{ip.strip()}/json/"
 
-contents = urllib.request.urlopen(url, context=ctx).read()
+contents = requests.get(url)
+print("------ RAW Output ------")
 print(contents)
+print("------ FORMATTED Output ------")
+print(json.dumps(contents.json(), indent=4))
 
 
 
